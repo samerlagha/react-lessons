@@ -26,7 +26,7 @@ const element = React.createElement(
     'div',
     {className:'greeting'},
 
-    [
+    
         React.createElement(
             'div',
             {className:'greeting__title'},
@@ -43,7 +43,7 @@ const element = React.createElement(
 
         )
 
-    ]
+    
 );
 
 ReactDOM.render(element,rooElement);
