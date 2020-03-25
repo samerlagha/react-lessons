@@ -10,6 +10,8 @@ const Search = (props) => {
             </div>
         </div>
     );
-}
+};
+
+ReactDOM.render(<Search name="Tom" />, rootElement);
 
 export default Search; 
