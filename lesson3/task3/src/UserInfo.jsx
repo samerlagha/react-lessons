@@ -1,14 +1,22 @@
 import React from 'react';
-import UserAvatar from './Avatar';
-import './author.scss';
+import moment from "moment";
+import './comment.scss';
+import UserInfo from './UserInfo.jsx';
 
-const UserInfo = props => {
-    return (
-        <div className="user-info">
-            <UserAvatar avatarUrl={props.author.avatarUrl}/>
-            <div className="user-info__name">{props.author.name}</div>
+const formatDate = date => moment(date).format("DD MMM YYYY");
+
+function Comment(props) {
+  return (
+    <div className="comment">
+        <UserInfo user={props.user}/>
+        <div className="comment__text">
+          {props.text}
         </div>
-    );
-};
+        <div className="comment__date">
+          {formatDate(props.date)}
+        </div>
+    </div>
+  );
+}
 
-export default UserInfo;
+export default Comment;
