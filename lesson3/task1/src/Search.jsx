@@ -12,6 +12,5 @@ const Search = (props) => {
     );
 };
 
-ReactDOM.render(<Search name="Tom" />, rootElement);
 
 export default Search; 
