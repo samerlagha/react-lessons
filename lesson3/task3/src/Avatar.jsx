@@ -5,8 +5,8 @@ const Avatar = props => {
     return (
       <img
       className="avatar"
-    src={props.avatarUrl}
-      alt="ava" />
+      avatarUrl={props.avatarUrl}
+      name={props.name} />
     );
 };
 
