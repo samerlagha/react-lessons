@@ -4,9 +4,7 @@ import moment from 'moment';
 const getBirthDate = date => moment(date).format("DD MMM YY");
 
 
-const Greeting =props =>{
-
-
+const Profile =props =>{
 
     return(
         <>
@@ -19,4 +17,6 @@ const Greeting =props =>{
         
         </>
     )
-}
+};
+
+export default Profile;

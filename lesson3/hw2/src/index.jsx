@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles.scss';
-import Greeting from './Profile';
+import Profile from './Profile';
 
 const rootElem = document.querySelector('#root');
 
@@ -13,4 +13,4 @@ const userData= {
     birthPlace: 'London'
 };
 
-ReactDOM.render(<Greeting userData={userData}/>,rootElem);
+ReactDOM.render(<Profile userData={userData}/>,rootElem);
