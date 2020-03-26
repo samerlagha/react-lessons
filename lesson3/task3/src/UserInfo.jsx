@@ -11,11 +11,11 @@ function Comment(props) {
   return (
     <div className="user-info">
    <UserAvatar
-    avatarUrl={props.author.avatarUrl} 
-    name ={props.author.name}
+    avatarUrl={props.user.avatarUrl} 
+    name ={props.user.name}
    
    />
-    <div className="user-info__name">{props.author.name}</div>
+    <div className="user-info__name">{props.user.name}</div>
   </div>
   );
 }
