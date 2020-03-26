@@ -6,7 +6,7 @@ const UserAvatar = props => {
       <img
       className="avatar"
       src={props.avatarUrl}
-      alt={props.name}
+     
     />
     );
 };

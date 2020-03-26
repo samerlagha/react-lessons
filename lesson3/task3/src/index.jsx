@@ -1,18 +1,19 @@
-import React from 'react';
+import React from "react";
 import ReactDOM from 'react-dom';
-import './index.scss';
-import Comment from './Comment';
+import "./comment.scss";
+import "./styles.css";
+import Comment from "./Comment";
 
-const rootElement = document.querySelector('#root');
 
-const authorInfo={
+const rootElem = document.querySelector('#root');
+const authorInfo = {
     name: 'Tom',
-    avatarUrl:'https://i.imgur.com/3McFm3K.png'
+    avatarUrl: 'https://someCoolAvarat.org'
 };
 
 ReactDOM.render(
     <Comment
-  author={userInfo}
+  author={authorInfo}
   text="Good job!"
   date={new Date('2020-03-26T06:43:54')}
   />
