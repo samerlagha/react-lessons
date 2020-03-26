@@ -9,7 +9,7 @@ const formatDate = date => moment(date).format("DD MMM YYYY");
 function Comment(props) {
   return (
     <div className="comment">
-      <UserInfo author={props.user} />
+      <UserInfo author={props.author} />
       {
       /* <div className="user-info">
         <img
