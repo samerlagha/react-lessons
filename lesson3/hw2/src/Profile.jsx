@@ -8,10 +8,10 @@ const Profile =props =>{
 
     return(
         <>
-            <div className="greeting__name">
+            <div className="profile__name">
             {`${props.userData.firstName} ${props.userData.lastName}`}
             </div>
-            <div className="greeting__birth">
+            <div className="profile__birth">
             {`Was born ${getBirthDate(props.userData.birthDate)} in ${props.userData.birthPlace}`} 
             </div>
         
