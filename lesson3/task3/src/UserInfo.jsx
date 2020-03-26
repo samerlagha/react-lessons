@@ -7,7 +7,7 @@ import UserAvatar from './Avatar';
 
 const formatDate = date => moment(date).format("DD MMM YYYY");
 
-function Comment(props) {
+function UserInfo(props) {
   return (
     <div className="user-info">
    <UserAvatar
@@ -20,4 +20,4 @@ function Comment(props) {
   );
 }
 
-export default Comment;
+export default UserInfo;
