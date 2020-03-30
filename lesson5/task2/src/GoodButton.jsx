@@ -5,7 +5,8 @@ class GoodButton extends React.Component{
   handleClick(){
     // alert('Good job!');
 
-    alert(document.querySelector('.fancy-button').textContent);
+    // alert(document.querySelector('.fancy-button').textContent);
+    alert(event.target.value)
   
   }
     render(){
@@ -14,6 +15,7 @@ class GoodButton extends React.Component{
             <button 
             className="fancy-button"
             onClick={this.handleClick} 
+            value=  'CLICK ME!'
             
             >
           CLICK ME!
