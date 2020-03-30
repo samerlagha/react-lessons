@@ -16,7 +16,7 @@ class GoodButton extends React.Component{
             onClick={this.handleClick} 
             
             >
-          Click me!
+          CLICK ME!
           </button>
         );
     };
