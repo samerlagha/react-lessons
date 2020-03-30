@@ -2,11 +2,12 @@ import React from 'react';
 
 class GoodButton extends React.Component{
 
-  handleClick(){
+  handleClick(event){
     // alert('Good job!');
 
     // alert(document.querySelector('.fancy-button').textContent);
-    alert(event.target.value)
+    // alert(event.target.value)
+    alert(event.target.textContent)
   
   }
     render(){
@@ -15,10 +16,11 @@ class GoodButton extends React.Component{
             <button 
             className="fancy-button"
             onClick={this.handleClick} 
-            value=  'CLICK ME!'
+           
             
             >
           CLICK ME!
+        
           </button>
         );
     };
