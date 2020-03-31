@@ -18,6 +18,7 @@ class Toggler extends Component{
     return (
       <button 
         className="toggler"
+        // onClick={this.changetext}
         onClick={() => this.changeText()}
       >
           {this.state.text}
