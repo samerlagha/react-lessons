@@ -8,17 +8,17 @@ class ColorPicker extends Component{
   constructor(props){
     super(props);
     this.state = {
-      element: ''
+      elem: ''
     }
   }
   setColorName = colorName => {
     this.setState({
-     element:colorName
+     elem:colorName
     });
   }
   clearColorField = () => {
     this.setState({
-      element:''
+      elem:''
      }); 
   };
   render(){
