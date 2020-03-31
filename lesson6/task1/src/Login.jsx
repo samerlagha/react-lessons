@@ -1,11 +1,18 @@
-import React from "react";
+import React, { Component } from 'react';
+class Login extends Component {
+    constructor(props) {
+        super(props);
+    }
 
-const Login = (props) => {
-  return (
-    <button className="btn login" onClick={props.onLogin}>
-      Login
-    </button>
-  );
-};
-
+    render() {
+        return (
+            <button
+                className="login btn"
+                onClick={this.props.onLogin}
+            >
+                Login
+            </button>
+            )
+        }
+}
 export default Login;
