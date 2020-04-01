@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import './index.scss';
 import Login from './Login';
 import Logout from './Logout';
 import Spinner from './Spinner';
+
 
 class Auth extends Component {
     constructor(props) {
