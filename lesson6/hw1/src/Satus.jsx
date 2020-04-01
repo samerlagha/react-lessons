@@ -1,21 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Online from './Online';
 import Offline from './Offline';
 
-
-const Satus =props=>{
-
-        return(
-         <div className="status">
-
-             {
-                 props.isOnline ?
-                 <Online />
-                 :<Offline />
-             }
-         </div>
-        );
-    }
-
-
-export default Satus;
+class Status extends Component{
+  state = {
+    isOnline: false
+  };
+  render(){
+    return (
+      this.state.isOnline
+        ? <Online />
+        : <Offline />      
+    );
+  }
+}
+export default Status;

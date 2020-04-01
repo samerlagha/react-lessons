@@ -1,12 +1,9 @@
 import React from 'react';
 
-
-const Online = ()=>{
-
-    return(
-
-        <div>All good!</div>
+const Online = () => {
+    return (
+        <>All good!</>
     )
-}
+};
 
 export default Online;
