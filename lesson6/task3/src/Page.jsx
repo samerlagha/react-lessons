@@ -6,14 +6,20 @@ import Message from './Message';
 const text = 'Hello, world!';
 const text1 = 'Another exciting text.';
 
-class Page extends Component {
-    constructor(props) {
-        super(props);
+class Page extends Component{
 
-        this.state = {
-            text: null,
-        }
+    state={
+        text:null
     }
+
+
+//     constructor(props) {
+//         super(props);
+
+//         this.state = {
+//             text: null,
+//         }
+//     }
 
     setText = text => {
         this.setState({
