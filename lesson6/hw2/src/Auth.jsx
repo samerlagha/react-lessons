@@ -3,42 +3,46 @@ import Login from './Login';
 import Logout from './Logout';
 import Spinner from './Spinner';
 
-class Auth extends Component{
+class Auth extends Component {
+    constructor(props) {
+        super(props);
 
-    state ={
-        onlinesatus:true,
-        markSpiner:false
-    };
+        this.state = {
+            isLoggedIn: false,
+            spinnerRolling: true,
+        }
+    }
 
-    handleLogin=()=>{
-        this.changeMarkSpinner();
-        this.setState({onlinesatus:true});
-    };
-
-    handleLogout=()=>{
-        this.changeMarkSpinner();
-        this.setState({onlinesatus:false});
-    };
-
-    changeMarkSpinner=()=>{
-        setTimeout(()=>{
-            this.setState({
-                markSpiner:false
-            });
-        },2000);
+    onLogin = () => {
         this.setState({
-            markSpiner:true
-        });
-    };
+            isLoggedIn: true,
+        })
+        setTimeout(() => {
+            this.setState({
+                spinnerRolling: false,
+            })
+        }, 2000);
+    }
+
+    onLogout = () => {
+        this.setState({
+            isLoggedIn: false,
+            spinnerRolling: true,
+        })
+    }
 
     render() {
-        if (this.state.markForSpinner) {
-          return <Spinner size={40} />;
-        }
-        return this.state.onlineSatus
-          ? <Login onLogin={this.handleLogout} />
-          : <Logout onLogout={this.handleLogin} />
-      };
-    };
-    
-    export default Auth;
+
+        const spinnerOrLogout = !this.state.spinnerRolling ?
+        <Logout onLogout={() => this.onLogout} /> :
+        <Spinner size={30} />;
+
+        return (
+                !this.state.isLoggedIn ?
+                    <Login onLogin={this.onLogin} /> :
+                    spinnerOrLogout
+        )
+    }
+}
+
+export default Auth;
