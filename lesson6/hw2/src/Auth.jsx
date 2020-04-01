@@ -1,50 +1,39 @@
 import React, { Component } from 'react';
-import './index.scss';
 import Login from './Login';
 import Logout from './Logout';
 import Spinner from './Spinner';
 
-
 class Auth extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            isLoggedIn: false,
-            spinnerRolling: true,
-        }
+  state = {
+    onlineSatus: true,
+    markForSpinner: false
+  };
+  handleLogin = () => {
+    this.changeMarkForSpinner();
+    this.setState({ onlineSatus: true });
+  };
+  handleLogout = () => {
+    this.changeMarkForSpinner();
+    this.setState({ onlineSatus: false });
+  };
+  changeMarkForSpinner = () => {
+    setTimeout(() => {
+      this.setState({
+        markForSpinner: false
+      });
+    }, 2000);
+    this.setState({
+      markForSpinner: true
+    });
+  };
+  render() {
+    if (this.state.markForSpinner) {
+      return <Spinner size={40} />;
     }
-
-    onLogin = () => {
-        this.setState({
-            isLoggedIn: true,
-        })
-        setTimeout(() => {
-            this.setState({
-                spinnerRolling: false,
-            })
-        }, 2000);
-    }
-
-    onLogout = () => {
-        this.setState({
-            isLoggedIn: false,
-            spinnerRolling: true,
-        })
-    }
-
-    render() {
-
-        const spinnerOrLogout = !this.state.spinnerRolling ?
-        <Logout onLogout={() => this.onLogout} /> :
-        <Spinner size={30} />;
-
-        return (
-                !this.state.isLoggedIn ?
-                    <Login onLogin={this.onLogin} /> :
-                    spinnerOrLogout
-        )
-    }
-}
+    return this.state.onlineSatus
+      ? <Login onLogin={this.handleLogout} />
+      : <Logout onLogout={this.handleLogin} />
+  };
+};
 
 export default Auth;
