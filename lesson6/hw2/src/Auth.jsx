@@ -12,7 +12,7 @@ class Auth extends Component {
     };
   }
 
-  showLogout = () => {
+  onLogin = () => {
     this.setState({
       spinner: true,
       isLogin: false
@@ -24,7 +24,7 @@ class Auth extends Component {
     }, 2000);
   };
 
-  hideLogout = () => {
+  onLogout = () => {
     this.setState({
       isLogin: true,
       spinner: false
@@ -35,9 +35,9 @@ class Auth extends Component {
     return (
       <>
         {this.state.isLogin ? (
-          <Login showLogout={this.showLogout} />
+          <Login onLogin={this.onLogin} />
         ) : (
-          <Logout hideLogout={this.hideLogout} />
+          <Logout onLogout={this.onLogout} />
         )}
         {this.state.spinner && <Spinner size={25} />}
       </>
