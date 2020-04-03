@@ -1,35 +1,31 @@
 import React, { Component } from 'react';
 
-
 class Life extends Component {
     constructor(props) {
         super(props);
-
-        console.log('constructor: good place to create state');
+        console.log('constructor')
     }
 
     componentDidMount() {
-        console.log('componentDidMount: API calls, subscriptions');
+        console.log('componentDidMount: API calls')
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        console.log('shoudlComponentUpdate(nextProps, nextState): decide to render or not to render');
+        console.log('decide to render or not to render');
         return true;
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log('componentDidUpdate(prevProps, prevState): some updates based on new props');
+        console.log('some updates based on new props')
     }
 
     componentWillUnmount() {
-        console.log('componentWillUnmount(): cleanup before DOM related to component will be removed');
+        console.log('cleanup before DOM related to component will be removed')
     }
 
     render() {
-        console.log('return React element to build DOM');
-        return (
-            <div>Text Here</div>
-        )
+        console.log('React element to build DOM')
+        return <div className="number">{this.props.number}</div>;
     }
 }
 
