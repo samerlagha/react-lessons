@@ -11,7 +11,7 @@ class Life extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    console.log('shoudlComponentUpdate(nextProps, nextState): decide to render or not to render');
+    console.log('shoudlComponentUpdate(nextProps,nextState): decide to render or not render');
     return true;
     // return nextProps;
   }
