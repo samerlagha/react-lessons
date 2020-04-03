@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
-import Demo from './Demo';
 
-const rootElement = document.querySelector('#root');
+import Life from './Life';
 
-ReactDOM.render(<Demo />, rootElement);
+
+const rootElem = document.querySelector('#root');
+
+ReactDOM.render(<Life />, rootElem);
