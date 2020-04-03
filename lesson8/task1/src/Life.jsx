@@ -1,36 +1,31 @@
-import React from 'react';
-import Demo from './Demo';
+import React, { Component } from 'react';
 
-class Life extends React.Component{
-    constructor(props){
-        super(props);
+class Life extends Component {
+  constructor(props) {
+    super(props);
+    console.log('constructor: good place to create state');
+  }
 
-        console.log('constructor: good place to create state');
-    }
+  componentDidMount() {
+    console.log('componentDidMount: API calls, subscriptions');
+  }
 
-    componentDidMount(){
-        console.log('componentDidMount: API calls, subscriptions');
-    }
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('shoudlComponentUpdate(nextProps, nextState): decide to render or not to render');
+    return nextProps;
+  }
 
-    shouldComponentUpdate(nextProps,nextState){
-        console.log('shoudlComponentUpdate(nextProps, nextState): decide to render or not to render');
-        return true;
-    }
-    componentDidUpdate(prevProps,prevState){
-        console.log('componentDidUpdate(prevProps, prevState): some updates based on new props');
-    }
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate(prevProps, prevState): some updates based on new props');
+  }
 
-    componentWillUnmount(){
-        console.log('componentWillUnmount(): cleanup before DOM related to component will be removed');
-    }
+  componentWillUnmount() {
+    console.log('componentWillUnmount(): cleanup before DOM related to component will be removed');
+  }
 
-    render(){
-        console.log('return React element to build DOM');
-
-        return(
-            <div className="number">{this.props.number}</div>
-        );
-    }
-}
-
+  render() {
+    console.log('return React element to build DOM');
+    return <div className="number">{this.props.number}</div>;
+  }
+};
 export default Life;
