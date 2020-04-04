@@ -13,7 +13,7 @@ class ConnectionStatus extends React.Component {
     window.addEventListener('online', this.onlineToggler);
  }
 
- UNSAFE_componentWillMount (){
+ componentWillUnmount (){
     window.addEventListener('offline', this.offlineToggler);
     window.addEventListener('online', this.onlineToggler);
  }
