@@ -4,6 +4,7 @@ import moment from 'moment';
 class Clock extends React.Component{
 constructor(props){
     super(props);
+  
     this.state={
        time:this.localeTime(props.offset),
     };
