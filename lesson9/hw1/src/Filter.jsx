@@ -1,19 +1,13 @@
 import React from 'react';
+import User from './User';
 
-const Filter = props => {
 
-        return (
-            <div className="filter">
-                <span className="filter__count">{props.count}</span>
-                <input
-                    type="text"
-                    className="filter__input"
-                    name="search"
-                    value={props.filterText}
-                    onChange={props.onChange}
-                />
-            </div>
-        )
+const Filter = ({ filterText, count, onChange }) => {
+  return (
+    <div className="filter">
+      <span className="filter__count">{count}</span>
+      <input type="text" className="filter__input" onChange={onChange} value={filterText} />
+    </div>
+  );
 };
-
 export default Filter;
