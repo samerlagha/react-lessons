@@ -1,14 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 
+ export default class EvenNumbers extends Component {
+    shouldComponentUpdate (nextProps) {
+        return nextProps.number % 2 === 0;
+    }
 
-export default class EvenNumbers extends React.Component{
-  shouldComponentUpdate(nextProps){
-
-      return nextProps.number % 2 ===0;
-  }
-
-    render(){
-
+    render() {
         return (
             <div className="number">
                 <span className="number__title">{this.props.title}</span>
@@ -16,5 +13,4 @@ export default class EvenNumbers extends React.Component{
             </div>
         );
     }
-    
 }

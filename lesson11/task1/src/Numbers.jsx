@@ -1,14 +1,15 @@
-import React from 'react';
-export default class Numbers extends React.Component{
-shouldComponentUpdate(nextProps){
-    if(this.props.number === nextProps.number && this.props.title ===nextProps.title){
-        return false;
+import React, { Component } from 'react';
+
+
+ export default class Numbers extends Component {
+    shouldComponentUpdate(nextProps) {
+        if (this.props.number === nextProps.number && this.props.title === nextProps.title) {
+            return false;
+        }
+        return true;
     }
-     return true;
-}
 
-    render(){
-
+    render() {
         return (
             <div className="number">
                 <span className="number__title">{this.props.title}</span>
@@ -16,6 +17,4 @@ shouldComponentUpdate(nextProps){
             </div>
         );
     }
-    
 }
-
