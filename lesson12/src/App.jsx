@@ -1,13 +1,9 @@
 import React from 'react';
-import TodoList from './TodoList'
+import TodoList from './TodoList';
 
-
-const App =()=>{
-
-    return (
-        <TodoList/>
-    )
-}
-
-
+const App = () => {
+  return (
+    <TodoList />
+  );
+};
 export default App;

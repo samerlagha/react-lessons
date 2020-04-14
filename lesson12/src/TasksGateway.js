@@ -1,66 +1,55 @@
 
-const baseUrl ='https://crudcrud.com/api/0ff125384b1e4a7497ee08ba3c3933ea/tasks';
-
-export const createTask = taskData=>{
+const baseUrl ='https://crudcrud.com/api/6c3392cb680d466e954b329629573c3a/tasks';
 
 
-    return fetch(baseUrl ,{
-        method:'POST',
-        headers:{
-            'Content-Type' : 'application/json;utc-8'
-        },
-        body: JSON.stringify(taskData),
-    }).then(response=>{
-        if(!response.ok){
-            
-            throw new Error('Faild to create task');
-        }
-      
+export const fetchTasksList = () => {
+  return fetch(baseUrl)
+    .then(res => {
+      if (res.ok) {
+        return res.json();
+      }
+    })
+    .then(tasksList =>
+      tasksList.map(({ _id, ...elem }) => ({ id: _id, ...elem })));
+};
+
+export const createTask = newTask => {
+  return fetch(baseUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': "application/json; utc-8"
+    },
+    body: JSON.stringify(newTask),
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to create task');
+      }
     });
 };
 
-export const fetchTasksList =()=>{
-
-  
-   return  fetch(baseUrl)
-    .then(res=>{
-        if(res.ok){
-            return res.json()
-        }
-    }).then(TasksList=>
-        TasksList.map(({_id,...task})=>({
-            id:_id,
-            ...task,
-        })),
-    );
-};
-
-export const updateTask=(taskId,taskData)=>{
-
-    return  fetch(` ${baseUrl}/${taskId} `,{
-        method:'PUT',
-        headers:{
-            'Content-Type' : 'application/json;utc-8'
-        },
-        body: JSON.stringify(taskData),
-    }).then(response=>{
-        if(!response.ok){
-            throw new Error('Faild to create task');
-        }
-         
+export const onChangeTask = (updatedTask, id) => {
+  return fetch(`${baseUrl}/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': "application/json; utc-8"
+    },
+    body: JSON.stringify(updatedTask),
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to create task');
+      }
     });
+}
 
-   } ;
-
-
-   export const deleteTask =(taskId)=>{
-
-     return fetch(`${baseUrl}/${taskId}`,{
-        method:'DELETE',
-    }).then(response=>{
-       if(!response.ok){
-        throw new Error('Faild to delet task');
-       } 
-     
-   });
-   }
+export const onDeleteTask = id => {
+  return fetch(`${baseUrl}/${id}`, {
+    method: "DELETE"
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to create task');
+      }
+    });
+};
