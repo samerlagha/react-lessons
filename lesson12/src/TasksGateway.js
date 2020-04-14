@@ -24,7 +24,7 @@ export const createTask = taskData => {
   })
       .then(response => {
           if (!response.ok) {
-              throw new Error('Faaaailed!!!!');
+              throw new Error('Failed create task');
           }
       })
 };
@@ -39,7 +39,7 @@ export const updateTask = (taskId, taskData) => {
   })
       .then(response => {
           if (!response.ok) {
-              throw new Error('Faaaailed to update!!!!');
+              throw new Error('Failed to update');
           }
       })
 };
@@ -50,7 +50,7 @@ export const deleteTask = taskId => {
   })
       .then(response => {
           if (!response.ok) {
-              throw new Error('Faaaailed to delete!!!!');
+              throw new Error('Failed to delete');
           }
       })
 }

@@ -24,10 +24,10 @@ const Task = ({ text, done, id, onDeleteTask, onChangeStatus }) => {
 export default Task;
 Task.propTypes = {
     text: PropTypes.string,
-    done: PropTypes.bool,
+    done: PropTypes.bool.isRequired,
     id: PropTypes.string,
-    onDeleteTask: PropTypes.func,
-    onChangeStatus: PropTypes.func
+    onDeleteTask: PropTypes.func.isRequired,
+    onChangeStatus: PropTypes.func.isRequired,
 
 }
 Task.defaultProps = {
