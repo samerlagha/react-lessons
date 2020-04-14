@@ -1,71 +1,72 @@
 import React, { Component } from 'react';
-import Task from './Task';
 import CreateTaskInput from './CreateTaskInput';
-import { fetchTasksList, createTask, onChangeTask, onDeleteTask } from './TasksGateway';
-
+import Task from './Task';
+import { createTask, fetchTasksList, updateTask, deleteTask } from './TasksGateway';
 
 class TasksList extends Component {
-  state = {
-    tasks: [],
-  };
+    state = {
+        tasks: []
+    }
 
-  componentDidMount() {
-    this.fetchTasks();
-  }
+    componentDidMount() {
+        this.fetchTasks();
+    }
 
-  fetchTasks = () => {
-    fetchTasksList()
-      .then(tasksList => {
-        this.setState({
-          tasks: tasksList
-        });
-      });
-  };
+    fetchTasks = () => {
+        fetchTasksList()
+            .then(taskList =>
+                this.setState({
+                    tasks: taskList,
+                }))
+    }
 
-  onCreate = text => {
-    const newTask = {
-      text,
-      done: false,
-    };
-    createTask(newTask)
-      .then(() => this.fetchTasks());
-  };
+    createTaskHandler = text => {
+        const newTask = {
+            text,
+            done: false,
+        }
 
-  handleTaskOnChange = id => {
-    const changedTask = this.state.tasks.find(task => task.id === id);
-    const { text, done } = changedTask;
-    const updatedTask = {
-      text,
-      done: !done,
-    };
-    onChangeTask(updatedTask, id)
-      .then(() => this.fetchTasks());
-  };
+        createTask(newTask)
+            .then(() => this.fetchTasks());
+    }
 
-  handleTaskDelete = id => {
-    onDeleteTask(id)
-      .then(() => this.fetchTasks());
-  };
+    deleteTaskHandler = id => {
+        deleteTask(id)
+            .then(() => this.fetchTasks());
+    }
 
-  render() {
-    const sortedTasks = [...this.state.tasks]
-      .sort((a, b) => a.done - b.done);
-    return (
-      <main className="todo-list">
-        <CreateTaskInput onCreate={this.onCreate} />
-        <ul className="list">
-          {
-            sortedTasks.map(task =>
-              <Task
-                key={task.id}
-                {...task}
-                onChange={this.handleTaskOnChange}
-                handleTaskDelete={this.handleTaskDelete}
-              />)
-          }
-        </ul>
-      </main>
-    );
-  }
-};
+    changeStatusHandler = id => {
+        const { done, text } = this.state.tasks.find(task => task.id === id);
+        const updatedTask = {
+            text,
+            done: !done,
+        }
+        updateTask(id, updatedTask)
+            .then(() => this.fetchTasks());
+    }
+
+
+    render() {
+        const sortedTasks = this.state.tasks
+            .slice()
+            .sort((a, b) => a.done - b.done);
+
+        return (
+            <div className="todo-list">
+                <CreateTaskInput
+                    onCreateTask={this.createTaskHandler} />
+                <ul className="list">
+                    {sortedTasks.map(task =>
+                        <Task
+                            {...task}
+                            key={task.id}
+                            onDeleteTask={this.deleteTaskHandler}
+                            onChangeStatus={this.changeStatusHandler} />
+                    )}
+                </ul>
+            </div>
+        )
+    }
+}
+
 export default TasksList;
