@@ -1,7 +1,7 @@
 
- const baseUrl ='https://crudcrud.com/api/6c3392cb680d466e954b329629573c3a/tasks';
+//  const baseUrl ='https://crudcrud.com/api/6c3392cb680d466e954b329629573c3a/tasks';
 
- //const baseUrl = 'https://5e95c6135b19f10016b5de92.mockapi.io/api/v1/tasks';
+ const baseUrl = 'https://5e95c6135b19f10016b5de92.mockapi.io/api/v1//tasks';
 
  export const fetchTasksList = () => {
   return fetch(baseUrl)
