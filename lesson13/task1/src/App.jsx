@@ -1,17 +1,16 @@
 import React from 'react';
-import {BrowserRouter,Route,Switch} from 'react-router-dom';
-import Contacts from './Contacts';
-import Products from './Products';
+import './index.scss';
 import Home from './Home';
+import Products from './Products';
+import Contacts from './Contacts';
+import PageNotFound from './PageNotFound';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-
-const App=()=>{
-
-    return(
-
+const App = () => {
+    return (
         <div className="page">
-          <BrowserRouter>
-          <Switch>
+            <BrowserRouter>
+                <Switch>
                     <Route exact path="/">
                         <Home />
                     </Route>
@@ -25,9 +24,9 @@ const App=()=>{
                         <PageNotFound />
                     </Route>
                 </Switch>
-        </BrowserRouter>
+            </BrowserRouter>
         </div>
     );
-}
+};
 
 export default App;
