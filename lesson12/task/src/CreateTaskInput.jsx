@@ -27,7 +27,7 @@ class CreateTaskInput extends Component {
                     onChange={this.onChange}
                 />
                 <button 
-                    className="btn create-task-btn"
+                    className="btn create-task__btn"
                     onClick={this.onCreateTaskHandler}
                 >Create</button>
             </div>
