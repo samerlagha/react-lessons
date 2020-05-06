@@ -17,12 +17,13 @@ const App = () => {
                     </li>
                 </ul>
                 <Switch>
+                <Route exact path="/">
+                        <Home />
+                    </Route>
                     <Route path="/users">
                         <Users />
                     </Route>
-                    <Route exact path="/">
-                        <Home />
-                    </Route>
+                   
                 </Switch>
             </BrowserRouter>
         </div>
