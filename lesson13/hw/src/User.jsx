@@ -41,4 +41,8 @@ class User extends Component {
     }
 };
 
+<<<<<<< HEAD
 export default User;
+=======
+export default User;
+>>>>>>> ad5a51866c4606c8c936b1ddc8efd9ed51405d56
