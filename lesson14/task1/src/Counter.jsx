@@ -10,7 +10,10 @@ const Counter =()=>{
             >
                 -
             </button>
-            <span className="counter__value">
+            <span className="counter__value"
+            
+            onClick={()=>setCounter(0)}
+            >
                 {counter}
             </span>
             <button className="counter__button"
