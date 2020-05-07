@@ -9,6 +9,16 @@ body {
     justify-content: center;
 }
 
+.btn {
+  margin-bottom: -15px;
+  width: 70px;
+  height: 35px;
+  font-size: 18px;
+  background-color: rgb(250, 7, 7);
+  border: none;
+  border-radius: 8px;
+}
+
 .clock {
     display: flex;
     flex-direction: column;
@@ -32,3 +42,4 @@ body {
       text-align: center;
     }
   }
+
