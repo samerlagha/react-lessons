@@ -9,7 +9,7 @@ const rootElement = document.querySelector('#root');
 
 const userInfo = {
     name: 'Tom',
-    avatarUrl: 'https://someCoolAvarat.org'
+    avatarUrl: "https://avatars1.githubusercontent.com/users"
 };
 
 ReactDOM.render(

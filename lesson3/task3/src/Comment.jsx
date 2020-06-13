@@ -9,7 +9,7 @@ const formatDate = date => moment(date).format("DD MMM YYYY");
 const Comment = props => {
     return (
         <div className="comment">
-            <UserInfo user={props.author}/>
+            <UserInfo user={props.user}/>
             <div className="comment__text">
               {props.text}
               </div>
